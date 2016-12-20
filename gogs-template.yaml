@@ -370,13 +370,13 @@ objects:
       }
       EOF
 
-      RETURN=$(curl -o /dev/null -sL -w "%{http_code}" -H "Content-Type: application/json" \
-      -u gogs:$GOGS_PASSWORD -X POST http://$GOGSSVC:3000/api/v1/repos/migrate -d @/tmp/data.json)
+      #RETURN=$(curl -o /dev/null -sL -w "%{http_code}" -H "Content-Type: application/json" \
+      #-u gogs:$GOGS_PASSWORD -X POST http://$GOGSSVC:3000/api/v1/repos/migrate -d @/tmp/data.json)
 
-      if [ $RETURN != "201" ]
-      then
-      exit 255
-      fi
+      #if [ $RETURN != "201" ]
+      #then
+      #exit 255
+      #fi
 
       sleep 5
 
