@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: myfirstpipeline
+  labels:
+    name: myfirstpipeline
+  annotations:
+    pipeline.alpha.openshift.io/uses: '[{"name": "myphp", "namespace": "", "kind": "DeploymentConfig"}]'
+spec:
+  triggers:
+    -
+      type: GitHub
+      github:
+        secret: secret101
+    -
+      type: Generic
+      generic:
+        secret: secret101
+  runPolicy: Serial
+  source:
+    type: None
+  strategy:
+    type: JenkinsPipeline
+    jenkinsPipelineStrategy:
+      jenkinsfile: "node('maven') {
+stage 'SIT - Build'
+openshiftBuild(namespace:'sit',buildConfig: 'helloworld-rs', showBuildLogs: 'true')
+stage 'SIT - Deploy'
+openshiftDeploy(namespace:'sit', deploymentConfig: 'helloworld-rs')
+stage 'SIT - Scale to 2'
+openshiftScale(namespace:'sit', deploymentConfig: 'helloworld-rs',replicaCount: '2')
+stage 'UAT - Deploy'
+openshiftDeploy(namespace:'uat', deploymentConfig: 'helloworld-rs')
+stage 'UAT - Scale to 3'
+openshiftScale(namespace:'uat', deploymentConfig: 'helloworld-rs',replicaCount: '3')
+}"
+  output:
+  resources:
+  postCommit:
