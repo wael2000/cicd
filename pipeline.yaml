@@ -22,18 +22,7 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-      jenkinsfile: "node('maven') {
-stage 'SIT - Build'
-openshiftBuild(namespace:'sit',buildConfig: 'helloworld-rs', showBuildLogs: 'true')
-stage 'SIT - Deploy'
-openshiftDeploy(namespace:'sit', deploymentConfig: 'helloworld-rs')
-stage 'SIT - Scale to 2'
-openshiftScale(namespace:'sit', deploymentConfig: 'helloworld-rs',replicaCount: '2')
-stage 'UAT - Deploy'
-openshiftDeploy(namespace:'uat', deploymentConfig: 'helloworld-rs')
-stage 'UAT - Scale to 3'
-openshiftScale(namespace:'uat', deploymentConfig: 'helloworld-rs',replicaCount: '3')
-}"
+      jenkinsfile: "node('maven') { stage 'SIT - Build'\nopenshiftBuild(namespace:'sit',buildConfig: 'helloworld-rs', showBuildLogs: 'true')\nstage 'SIT - Deploy'\nopenshiftDeploy(namespace:'sit', deploymentConfig: 'helloworld-rs')\nstage 'SIT - Scale to 2'openshiftScale(namespace:'sit', deploymentConfig: 'helloworld-rs',replicaCount: '2')}"
   output:
   resources:
   postCommit:
