@@ -1,15 +1,17 @@
 apiVersion: v1
 kind: Template
+metadata:
+  name: gogs
 labels:
-  template: cicd
-  group: cicd
+  template: gogs
+  group: gogs
 metadata:
   annotations:
-    description: Creates the CI/CD infrastructure with Jenkins, Gogs, Nexus and SonarQube
-    iconClass: icon-jenkins
-    tags: instant-app,jenkins,gogs,nexus,cicd
-  name: cicd
-message: The CI/CD infrastructure composed of Jenkins, Gogs, Nexus Repository and SonarQube services has been created in your project.  Jenkins username/password are admin/${JENKINS_PASSWORD} and Gogs username/password are gogs/${GOGS_PASSWORD}.
+    description: Creates gogs
+    iconClass: icon-gogs
+    tags: gogs
+  name: gogs
+message: gogs.
 parameters:
 - description: Password for the Gogs user.
   displayName: Gogs Password
