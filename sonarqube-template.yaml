@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: SonarQube
+  name: sonarqube
 labels:
-  template: SonarQube
-  group: SonarQube
+  template: sonarqube
+  group: sonarqube
 metadata:
   annotations:
     description: Creates the CI/CD SonarQube
