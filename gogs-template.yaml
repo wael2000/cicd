@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: gogs
+labels:
+  template: gogs
+  group: gogs
+metadata:
+  annotations:
+    description: Creates gogs
+    iconClass: icon-gogs
+    tags: gogs
+  name: gogs
+message: gogs.
 - apiVersion: v1
   kind: Service
   metadata:
