@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: sonarqube
+  name: SonarQube
 labels:
-  template: sonarqube
-  group: sonarqube
+  template: SonarQube
+  group: SonarQube
 metadata:
   annotations:
     description: Creates the CI/CD SonarQube
     iconClass: icon-SonarQube
     tags: SonarQube
-  name: SonarQube
+  name: sonarqube
 message: The CI/CD infrastructure, SonarQube.
 parameters:
 - description: Username for PostgreSQL backend
