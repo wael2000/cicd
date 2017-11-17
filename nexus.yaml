@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Template
 labels:
   template: nexus
-  group: cicd
+  group: nexus
 metadata:
   annotations:
     description: Creates the CI/CD infrastructure with Nexus
