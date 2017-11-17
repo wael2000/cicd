@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Template
 labels:
-  template: Nexus
+  template: nexus
   group: cicd
 metadata:
   annotations:
     description: Creates the CI/CD infrastructure with Nexus
     iconClass: icon-jenkins
     tags: nexus,cicd
-  name: cicd
+  name: nexus
 message: The CI/CD infrastructure, Nexus.
 objects:
 # Sonatype Nexus
